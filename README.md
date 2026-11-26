@@ -1,10 +1,29 @@
 # DocBreaker
 
-**PDF and website extraction for RAG, with local-first processing and selective vision-model assistance.**
+[![Tests](https://github.com/hanchao4469/docbreaker/actions/workflows/tests.yml/badge.svg)](https://github.com/hanchao4469/docbreaker/actions/workflows/tests.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-面向知识库的文档处理服务：普通 PDF 页优先本地提取；扫描件、复杂版面和图解按需调用视觉模型。网页从 HTML 中提取正文与表格，并可使用模型补充图片里的信息。
+**Turn complex PDFs and noisy websites into structured knowledge for RAG.**
 
-Early public release. Extraction and AI interpretation can contain errors; review important numbers and instructions against the source.
+**让复杂文档和杂乱网页，变成知识库真正用得上的内容。**
+
+DocBreaker combines fast native extraction with vision-model assistance to recover text, tables and useful diagram relationships—then delivers them through an asynchronous API with persistent tasks, quality flags and an operations dashboard.
+
+DocBreaker 是一套自建、可部署的文档处理服务。它借鉴交互式文档阅读的思路：先提取能可靠读到的原文，再让 AI 处理扫描页、复杂版面和图解。网页则先找正文、还原表格，再按需识别图片里的信息，兼顾内容质量、处理速度和模型成本。
+
+## Why DocBreaker?
+
+| | What you get |
+|---|---|
+| **Fast where it can be** | Reliable PDF pages stay on the local extraction path; bounded page parallelism accelerates document processing. |
+| **AI where it matters** | Difficult pages and selected web images receive vision-model assistance, concentrating model work on content that needs it. |
+| **More useful knowledge** | Recover headings, tables, source-language text and diagram relationships, with selected source images retained for reference. |
+| **Built beyond the demo** | Persistent task queues, retries, page-level recovery, usage tracking and drain/resume controls support real integration workflows. |
+| **One service, two sources** | Process PDFs and websites through the same deployment, with separate task queues and credentials for PDF/web model use. |
+
+**核心亮点：本地优先、按需 AI、图文结合、PDF 与网页统一接入、运行状态可观察。**
+
+Developed through real knowledge-base integration and regression work. This public release includes **149 automated regression tests**, Docker deployment and API examples. Model-assisted extraction remains probabilistic; review important numbers and instructions against the source. See [quality and deployment limitations](docs/limitations.md).
 
 ## What it does
 
