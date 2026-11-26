@@ -1,0 +1,18 @@
+services:
+  docbreaker:
+    build:
+      context: .
+      target: runtime
+    env_file: .env
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - docbreaker-data:/data
+    init: true
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=256m
+
+volumes:
+  docbreaker-data:

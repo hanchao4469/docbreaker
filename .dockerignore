@@ -1,0 +1,13 @@
+.git
+.venv
+__pycache__
+**/__pycache__
+.env*
+data
+outputs
+tmp
+docs
+tools
+!tools/
+tools/*
+!tools/loadtest.py
